@@ -55,9 +55,9 @@ try {
             <?php
             $stmt = $pdo->query('SELECT id FROM series');
             foreach ($stmt as $row) {
-                echo "<a href='series.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='series.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
             }
-            ?>  
+            ?>
         </div>
     </div>
     <div class="middenstuk">
@@ -85,14 +85,14 @@ try {
             ?>
         </div>
         <div class="serierating">
-        <h4>Details</h4>
+            <h4>Details</h4>
             <?php
             $stmt = $pdo->query('SELECT id FROM movies');
             foreach ($stmt as $row) {
-                echo "<a href='films.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='films.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
             }
             ?>
-    </div>
+        </div>
 </body>
 
 </html>
