@@ -16,7 +16,6 @@ try {
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +30,6 @@ try {
 <body>
     <h2 class="titel">Series</h2><br>
     <div class="series">
-
         <div class="serietitel">
             <h4>Title</h4>
             <span class="serietitels">
@@ -52,13 +50,20 @@ try {
             }
             ?>
         </div>
+        <div class="serierating">
+            <h4>Details</h4>
+            <?php
+            $stmt = $pdo->query('SELECT id FROM series');
+            foreach ($stmt as $row) {
+                echo "<a href='series.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+            }
+            ?>  
+        </div>
     </div>
     <div class="middenstuk">
-
     </div>
     <h2 class="titel">Films</h2><br>
     <div class="films">
-
         <div class="filmtitel">
             <h4>Title</h4>
             <span class="filmtitels">
@@ -79,6 +84,14 @@ try {
             }
             ?>
         </div>
+        <div class="serierating">
+        <h4>Details</h4>
+            <?php
+            $stmt = $pdo->query('SELECT id FROM movies');
+            foreach ($stmt as $row) {
+                echo "<a href='films.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+            }
+            ?>
     </div>
 </body>
 
